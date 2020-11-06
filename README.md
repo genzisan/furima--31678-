@@ -1,24 +1,67 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| column　        | Type  | Options      |
+| ----------------|--------|-------------|
+| email           | string | null: false |
+| password        | string | null: false |
+| nickname        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birth_day       | integer| null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :furimas
+- has_one  :purchase
 
-* Configuration
+## furimas テーブル
 
-* Database creation
+| column　    | Type               | Options    |
+| -----------|--------------------|-------------|
+| furima_name| string             | null: false |
+| category   | string             | null: false |
+| price      | integer            | null: false |
+| days       | integer            | null: false |
+| status     | string             | null: false |
+| details    | text               | null: false |
+| delivery   | integer            | null: false |
+| image      | ActiveStorageで実装 | null: false |
+| area       | string             | null: false |　　　
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_one :purchases
+- belongs_to :users
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchases テーブル
 
-* Deployment instructions
+| column　   | Type     | Options    |
+| ----------|-----------|-------------|
+| comment   | text      | null: false |
+| user      | reference |             |
+| furima    | reference |             |　　　
 
-* ...
+### Association
+
+- belongs_to :furimas
+- belongs_to :users
+- has_one :addresss
+
+## addresss テーブル
+
+| column　        | Type    | Options     |
+| ----------------|---------|-------------|
+| postal_code     | integer | null: false |
+| prefectures     | string  | null: false |
+| municipality    | string  | null: false |
+| address         | integer | null: false |
+| building_name   | string  |             |
+| phone_number    | integer | null: false |
+
+### Association
+
+- belongs_to :purchases
