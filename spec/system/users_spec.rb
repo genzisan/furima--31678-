@@ -1,9 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe "ユーザーログイン,テストコード", type: :system do
   before do
-    driven_by(:rack_test)
+    @user = FactoryBot.build(:user) 
   end
-
-  pending "add some scenarios (or delete) #{__FILE__}"
+    
+    it 'ログアウト状態では、ヘッダーに新規登録/ログインボタンが表示されること' do
+      # トップページに移動す
+      visit root_path
+      # ログアウト状態では、ヘッダーに新規登録/ログインボタンが表示されることを確認する
+      expect(page).to have_content('新規登録')
+      # 新規登録ページへ移動する
+      
+    end
 end
