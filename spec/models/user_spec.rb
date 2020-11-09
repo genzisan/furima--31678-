@@ -5,7 +5,10 @@ RSpec.describe User, type: :model do
   end
 
   describe '新規登録/ユーザー新規登録' do
-    context '新規登録が上手くいく時'
+    context '新規登録が上手くいかない場合'
+    it "全ての項目の入力が存在すれば登録できること" do
+      expect(@user).to be_valid
+    end
       it "ニックネームが必須であること" do
       @user.nickname = ""
       @user.valid?
