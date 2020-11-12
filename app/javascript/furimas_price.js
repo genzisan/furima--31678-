@@ -10,10 +10,3 @@ window.addEventListener('load', () => {
       priceProfit.innerHTML = Math.floor(inputValue　* 0.9)
     })
 });
-
-//Math.floor(5.3)
-//=> 5
-
-//const test = 1.1
-//Math.floor(test + 1)
-//=> 2

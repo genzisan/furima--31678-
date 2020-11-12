@@ -1,9 +1,9 @@
 class FurimasController < ApplicationController
   before_action :move_to_index, except: [:index]
   before_action :authenticate_user!, only: [:new]
-  def index
-    @furimas = Furima.all
-  end
+  #def index
+   # @furimas = Furima.all
+  #end
 
   def new
     @furimas = Furima.new
