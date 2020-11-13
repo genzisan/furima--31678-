@@ -1,6 +1,6 @@
 class FurimasController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_furima, only: [:edit, :show, :update]
   
   def index
