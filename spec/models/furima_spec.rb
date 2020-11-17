@@ -33,61 +33,61 @@ RSpec.describe Furima, type: :model do
     it 'カテゴリーの情報が必須であること' do
       @furima.category_id = nil
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Category can't be blank", "Category is not a number")
+      expect(@furima.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
     end
 
     it 'カテゴリーの入力情報が１の場合保存出来ないこと' do
       @furima.category_id = 1
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Category must be other than 1")
+      expect(@furima.errors.full_messages).to include('Category must be other than 1')
     end
 
     it '商品の状態についての情報が必須であること' do
       @furima.status_id = nil
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Status can't be blank", "Status is not a number")
+      expect(@furima.errors.full_messages).to include("Status can't be blank", 'Status is not a number')
     end
 
     it '商品の状態の入力情報が１の場合保存出来ないこと' do
       @furima.status_id = 1
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Status must be other than 1")
+      expect(@furima.errors.full_messages).to include('Status must be other than 1')
     end
 
     it '配送料の負担についての情報が必須であること' do
       @furima.delivery_id = nil
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Delivery can't be blank", "Delivery is not a number")
+      expect(@furima.errors.full_messages).to include("Delivery can't be blank", 'Delivery is not a number')
     end
 
     it '配送料の入力情報が１の場合保存出来ないこと' do
       @furima.delivery_id = 1
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Delivery must be other than 1")
+      expect(@furima.errors.full_messages).to include('Delivery must be other than 1')
     end
 
     it '発送元の地域についての情報が必須であること' do
       @furima.prefecture_id = nil
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
+      expect(@furima.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
     end
 
     it '発送元の地域の入力情報が１の場合保存出来ないこと' do
       @furima.prefecture_id = 1
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Prefecture must be other than 1")
+      expect(@furima.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
     it '発送までの日数についての情報が必須であること' do
       @furima.day_id = nil
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Day can't be blank", "Day is not a number")
+      expect(@furima.errors.full_messages).to include("Day can't be blank", 'Day is not a number')
     end
 
     it '発送までの日数の入力情報が１の場合保存出来ないこと' do
       @furima.day_id = 1
       @furima.valid?
-      expect(@furima.errors.full_messages).to include("Day must be other than 1")
+      expect(@furima.errors.full_messages).to include('Day must be other than 1')
     end
 
     it '価格についての情報が必須であること' do
@@ -109,7 +109,7 @@ RSpec.describe Furima, type: :model do
     end
 
     it '価格の範囲が、¥300~¥9,999,999の間であること' do
-      @furima.price = 1000000000
+      @furima.price = 1_000_000_000
       @furima.valid?
       expect(@furima.errors.full_messages).to include('Price must be less than or equal to 9999999')
     end
